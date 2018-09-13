@@ -38,5 +38,5 @@ export default class Card extends Component {
 
 Card.propTypes = {
     tails: PropTypes.func.isRequired,
-  }    callback: PropTypes.func.isRequired,
+    callback: PropTypes.func.isRequired,
 };
