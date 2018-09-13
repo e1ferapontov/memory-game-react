@@ -1,0 +1,30 @@
+/******************************************
+*  Author : Evgeniy Ferapontov   
+*  Created On : Wed Sep 05 2018
+*  File : GlobalStyle.css
+*******************************************/
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@font-face {
+    font-family: 'icons';
+    src: url('../Fonts/icons.eot?cwf23r');
+    src: url('../Fonts/icons.eot?cwf23r#iefix') format('embedded-opentype'),
+        url('../Fonts/icons.ttf?cwf23r') format('truetype'),
+        url('../Fonts/icons.woff?cwf23r') format('woff'),
+        url('../Fonts/icons.svg?cwf23r#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    font-size: 10px;
+    min-width: 740px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
