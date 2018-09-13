@@ -4,6 +4,8 @@
  *  File : themes.js
  *******************************************/
 
+export const ANIMATION_DURATION = 0.5;
+
 const COMMON_PROPERTIES = {
     textSizeSmall: "1.5rem",
     textSizeMedium: "2rem",

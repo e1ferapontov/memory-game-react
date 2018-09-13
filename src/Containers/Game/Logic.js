@@ -4,6 +4,8 @@
  *  File : Logic.js
  *******************************************/
 
+import { ANIMATION_DURATION } from "../../Components/Common/Themes";
+
 // helper functions
 const shuffleArray = (array) => {
     let currentIndex = array.length;
@@ -54,7 +56,7 @@ export const findMatches = (cardsTotal, exitHandler) => {
             setTimeout( () => {
                 first.flip();
                 second.flip();
-            }, 850);
+            }, ANIMATION_DURATION * 1250);
         }
         // obviously clear cache
         cached = null;

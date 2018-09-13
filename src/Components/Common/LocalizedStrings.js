@@ -39,9 +39,15 @@ export const READY_BUTTON = "Start new game";
 
 export const GAMEBOARD_TIMER = "TIME: ";
 export const GAMEBOARD_EXIT = "EXIT";
-export const GAMEBOARD_CONFIRM = "Are you sure you want to exit session? Any progress will be lost";
-export const GAMEBOARD_WIN = "🎉 Сongratulations! 🎉";
-export const GAMEBOARD_LOOSE = "Sorry you're not a winner";
+
+export const GAMEBOARD_CONFIRM_HEADER = "Are you sure you want to exit?";
+export const GAMEBOARD_CONFIRM_CONTENT = "Any progress will be lost";
+
+export const GAMEBOARD_WIN_HEADER = "🎉 Сongratulations! 🎉";
+export const GAMEBOARD_WIN_CONTENT = "Your time is:";
+
+export const GAMEBOARD_LOOSE_HEADER = "Sorry you're not a winner";
+export const GAMEBOARD_LOOSE_CONTENT = "Maybe try again later?";
 
 export const TOPRESULTS_HEADER = "Top results:";
 export const TOPRESULTS_BUTTON = "Play again";

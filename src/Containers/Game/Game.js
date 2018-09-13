@@ -15,6 +15,8 @@ import { addResult } from '../../Components/Store/Actions/TopResultsActions';
 import { createArrayOfTailIndexes, findMatches } from './Logic';
 import { resetUser } from '../../Components/Store/Actions/UserActions';
 import * as LOCALIZED_STRINGS from '../../Components/Common/LocalizedStrings';
+import { ANIMATION_DURATION } from '../../Components/Common/Themes';
+import swal from 'sweetalert';
 
 class Game extends Component {
     // the game starts when the component is rendered
@@ -31,19 +33,40 @@ class Game extends Component {
             const duration = moment(moment(resultTime).diff(this.state.startTime)).format('mm:ss');
             
             setTimeout(() => {
-                alert(LOCALIZED_STRINGS.GAMEBOARD_WIN);
+                swal({
+                    title: LOCALIZED_STRINGS.GAMEBOARD_WIN_HEADER,
+                    text: `${LOCALIZED_STRINGS.GAMEBOARD_WIN_CONTENT} ${duration}`,
+                    icon: "success",
+                    button: "Ok",
+                });
+                // that's showNext from RenderScreen.js
                 this.props.handleClick();
-            }, 250);
+            }, ANIMATION_DURATION * 500);
             this.props.addTopResultAction(username, difficulty, duration);
             return;
         }
-        let question = window.confirm(LOCALIZED_STRINGS.GAMEBOARD_CONFIRM);
-        if (question) {
-            alert(LOCALIZED_STRINGS.GAMEBOARD_LOOSE)
-            // that's showNext from RenderScreen.js
-            this.props.resetUserAction();
-            this.props.handleClick();
-        }
+
+        swal({
+            title: LOCALIZED_STRINGS.GAMEBOARD_CONFIRM_HEADER,
+            text: LOCALIZED_STRINGS.GAMEBOARD_CONFIRM_CONTENT,
+            icon: "warning",
+            dangerMode: true,
+            buttons: {
+                cancel: true,
+                confirm: true,
+            }
+        }).then( result => {
+            if (result) {
+                swal({
+                    title: LOCALIZED_STRINGS.GAMEBOARD_LOOSE_HEADER,
+                    icon: "error",
+                    button: "Ok",
+                });
+                this.props.resetUserAction();
+                // that's showNext from RenderScreen.js
+                this.props.handleClick();
+            }
+        });
     }
 
     render () {
@@ -88,4 +111,6 @@ Game.propTypes = {
     user: PropTypes.object.isRequired,
     settings: PropTypes.object.isRequired,
     addTopResultAction: PropTypes.func.isRequired,
+    resetUserAction: PropTypes.func.isRequired,
+    handleClick: PropTypes.func.isRequired,
 }

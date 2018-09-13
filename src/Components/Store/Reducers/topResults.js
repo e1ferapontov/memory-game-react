@@ -28,7 +28,6 @@ export const topResultsReducer = (state = createInitialState(), action) => {
     switch (action.type) {
         case 'ADD_RESULT': {
             const {difficulty, time, username} = action.payload;
-            console.log('---add_result data:', time, username, difficulty);
             const newState = [...state];
 
             let same = newState.some( element => {
@@ -36,7 +35,7 @@ export const topResultsReducer = (state = createInitialState(), action) => {
                         && difficulty === element.difficulty
                         && username === element.username );
             });
-            console.log('---add_result same?', same);
+
             if (!same) {
                 // so if it's not same we push it
                 newState.push({ username, time, difficulty });
@@ -47,7 +46,6 @@ export const topResultsReducer = (state = createInitialState(), action) => {
                     newState.length = TOPRESULTS_MAX_LEN;
                 }
             }
-
             return newState;
         }
     

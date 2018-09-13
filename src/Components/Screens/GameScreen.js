@@ -8,11 +8,7 @@ import React from 'react';
 import Game from '../../Containers/Game/Game';
 
 const GameScreen = ({handleClick}) => {
-    return (
-        <React.Fragment>
-            <Game handleClick={handleClick}/>
-        </React.Fragment>
-    );
+    return <Game handleClick={handleClick}/>
 };
 
 export default GameScreen;

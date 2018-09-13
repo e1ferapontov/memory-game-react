@@ -30,20 +30,11 @@ class App extends Component {
 
 // map needed props from store
 const mapStateToProps = store => {
-    console.log("###store:", store);
     return {
         settings: store.settings,
         user: store.user,
     };
 };
 
-const mapDispatchToProps = dispatch => {
-    return {
-    };
-};
-
 // export connected HOC
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(App);
+export default connect(mapStateToProps)(App);

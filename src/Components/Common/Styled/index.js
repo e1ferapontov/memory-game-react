@@ -115,11 +115,3 @@ export const RadioInputField = (props) => {
         </Label>
     );
 };
-
-
-
-// export const Test = styled(PageHeader)`
-//     text-align: right;
-//     font-size: ${props => props.theme.textSizeSmall};
-//     color: red;
-// `;

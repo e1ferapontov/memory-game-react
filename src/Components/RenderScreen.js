@@ -24,8 +24,9 @@ export default class RenderScreen extends Component {
                 });
                 return;
             }
+            // skip first screen
             this.setState({
-                currentScreen: 0,
+                currentScreen: 1,
             });
         };
 
@@ -42,8 +43,6 @@ export default class RenderScreen extends Component {
     }
 
     render () {
-        return (
-            this.state.screens[this.state.currentScreen]
-        );
+        return this.state.screens[this.state.currentScreen]
     }
 };

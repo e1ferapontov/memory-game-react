@@ -4,7 +4,19 @@
  *  File : index.js
  *******************************************/
 
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+import { ANIMATION_DURATION } from "../../Common/Themes";
+
+const slide = keyframes`
+    0% {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+`;
 
 export const PageContent = styled.section`
     flex: 1 0 auto;
@@ -29,4 +41,5 @@ export const PageWrapper = styled.article`
     border: 1px ${props => props.theme.borderColor} solid;
     background-color: ${props => props.theme.bgColorMain};
     transition: all 0.1s ease;
+    animation: ${slide} ${ANIMATION_DURATION}s ease;
 `;
